@@ -1,0 +1,24 @@
+{
+  "name": "bower",
+  "authors": [
+    "bear88130 <bear88130@yahoo.com.tw>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.1.1",
+    "Font-Awesome": "^5.0.13",
+    "bootstrap-datepicker": "^1.8.0",
+    "d3": "^5.5.0"
+  }
+}
