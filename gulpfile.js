@@ -1,3 +1,4 @@
+
 var gulp = require('gulp');
 var jade = require('gulp-jade'); //jade 為 jade編譯成 html 工具
 var sass = require('gulp-sass'); //sass 為 scss編譯成 css 工具
@@ -24,6 +25,7 @@ gulp.src('./*.jade')
 .pipe(gulp.dest('./dist/')) //dest()輸出位置
 });
 
+
 // 2.sass 轉成 css
 gulp.task('sass', function () {
 //先加入延伸套件，css瀏覽器版本選擇
@@ -43,7 +45,7 @@ return gulp.src('./style.scss')
 // 3.監看 scss 編譯 css
 // 要監聽會異動的檔案(含原封裝檔案)，有更動就去執行 gulp sass 
 gulp.task('watch', function () { 
-gulp.watch(['./scss/*.scss','./style.scss'], ['sass']);
+gulp.watch('./scss/*', ['sass']);
 });
 
 // 4.壓縮 css (上架版本)
