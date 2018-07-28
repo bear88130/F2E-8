@@ -40,6 +40,14 @@ $text-color:white !default;
     border-radius: 50%;
 }
 
+@mixin square-module($length,$bgcolor) {
+    position: absolute;
+    flex: 0 0 $length;
+    width: $length;
+    height: $length;
+    background-color: $bgcolor;
+}
+
 html,
 body {
     @extend %fullBlock;
@@ -107,8 +115,6 @@ body {
 
 .circle-object {
     @include circle-module(400px,black);
-    top: 450px;
-    left: 80vw;
     animation-name: circle-object-move;
     animation-duration: 3s;
     animation-fill-mode: forwards;
@@ -116,7 +122,7 @@ body {
 
 @keyframes circle-object-move {
     0% {
-        top: 650px;
+        top: 1200px;
         left: 80vw;
     }
     100% {
@@ -144,6 +150,56 @@ body {
         flex: 0 0 100vw;
         width: 100vw;
         height: 100vh;
+    }
+}
+
+.square-object {
+    @include square-module(180px, $normal-pink);
+    animation: move-square-object 8s 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-square-object {
+    0% {
+        transform: rotate(0deg);
+        top: 1200px;
+        left: 70vW;
+    }
+    60% {
+        transform: rotate(0deg);
+        top: 100px;
+        left: 70vW;
+    }
+    100% {
+        transform: rotate(360deg);
+        top: 100px;
+        left: 70vW;
+    }
+}
+
+.triangle-object {
+    @include square-module(140px, white);
+    -webkit-clip-path: polygon(50% 0%, 0 80%, 100% 80%);
+    clip-path: polygon(50% 0%, 0 80%, 100% 80%);
+    animation: move-triangle-object 8s 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-triangle-object {
+    0% {
+        transform: rotate(0deg);
+        top: 1200px;
+        left: 90vW;
+    }
+    60% {
+        transform: rotate(0deg);
+        top: 250px;
+        left: 90vW;
+    }
+    100% {
+        transform: rotate(-360deg);
+        top: 250px;
+        left: 90vW;
     }
 }
 
@@ -248,6 +304,14 @@ body {
         text-align: center;
         line-height: 36px;
         background-color: rgba(255, 255, 255, 0);
+        &:hover {
+            color:$light-blue;
+            background-color: white;
+        }
+        &:focus {
+            color:$light-blue;
+            background-color: white;
+        }
     }
 }
 

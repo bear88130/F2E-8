@@ -29,7 +29,12 @@
     .animationBlcok{
         flex:0;
     }
-
+    
+    .circle-object,
+    .square-object,
+    .triangle-object {
+        width: 0;
+    }
 
 }
 /* For320px */

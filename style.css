@@ -129,8 +129,6 @@ body {
   height: 400px;
   background-color: black;
   border-radius: 50%;
-  top: 450px;
-  left: 80vw;
   -webkit-animation-name: circle-object-move;
           animation-name: circle-object-move;
   -webkit-animation-duration: 3s;
@@ -140,7 +138,7 @@ body {
 
 @-webkit-keyframes circle-object-move {
   0% {
-    top: 650px;
+    top: 1200px;
     left: 80vw; }
   100% {
     top: 450px;
@@ -148,7 +146,7 @@ body {
 
 @keyframes circle-object-move {
   0% {
-    top: 650px;
+    top: 1200px;
     left: 80vw; }
   100% {
     top: 450px;
@@ -198,6 +196,98 @@ body {
     flex: 0 0 100vw;
     width: 100vw;
     height: 100vh; } }
+
+.square-object {
+  position: absolute;
+  flex: 0 0 180px;
+  width: 180px;
+  height: 180px;
+  background-color: #FF3C82;
+  -webkit-animation: move-square-object 8s 1;
+          animation: move-square-object 8s 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+@-webkit-keyframes move-square-object {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 1200px;
+    left: 70vW; }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 100px;
+    left: 70vW; }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    top: 100px;
+    left: 70vW; } }
+
+@keyframes move-square-object {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 1200px;
+    left: 70vW; }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 100px;
+    left: 70vW; }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    top: 100px;
+    left: 70vW; } }
+
+.triangle-object {
+  position: absolute;
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  background-color: white;
+  -webkit-clip-path: polygon(50% 0%, 0 80%, 100% 80%);
+  clip-path: polygon(50% 0%, 0 80%, 100% 80%);
+  -webkit-animation: move-triangle-object 8s 1;
+          animation: move-triangle-object 8s 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+@-webkit-keyframes move-triangle-object {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 1200px;
+    left: 90vW; }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 250px;
+    left: 90vW; }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    top: 250px;
+    left: 90vW; } }
+
+@keyframes move-triangle-object {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 1200px;
+    left: 90vW; }
+  60% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    top: 250px;
+    left: 90vW; }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    top: 250px;
+    left: 90vW; } }
 
 .triangle {
   position: absolute;
@@ -358,6 +448,12 @@ body {
     text-align: center;
     line-height: 36px;
     background-color: rgba(255, 255, 255, 0); }
+    .questionBlcok .choice-button:hover {
+      color: #1469FF;
+      background-color: white; }
+    .questionBlcok .choice-button:focus {
+      color: #1469FF;
+      background-color: white; }
 
 .animationBlcok {
   height: 100%;
@@ -382,6 +478,10 @@ body {
   .questionBlcok {
     flex: 3; }
   .animationBlcok {
-    flex: 0; } }
+    flex: 0; }
+  .circle-object,
+  .square-object,
+  .triangle-object {
+    width: 0; } }
 
 /* For320px */
