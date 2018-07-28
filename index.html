@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,48 +11,24 @@
     <script src="all.js"></script>
 
 </head>
+
 <body>
-    <div class="full">
+    <div id='page1' class="full">
+        <div class="square"></div>
         <div class="circle"></div>
-        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
-                Your browser does not support the canvas element.
-                </canvas>
-                <canvas id="triangle" class="triangle">123</canvas>
+        <div class="triangle"></div>
+        <div class="mirror-triangle"></div>
+        <h1 class="title">GEOMETRY PERSON</h1>
+        <h3 class="subtitle">find your core personality type in shapes!</h3>
     </div>
-    
-
-    <script>
-        var canvas = document.getElementById("triangle");
-        var ctx = canvas.getContext("2d");
-    
-        ctx.save();
-        ctx.fillStyle='#FF0000';
-        ctx.beginPath();
-        ctx.moveTo(200,50);
-        ctx.lineTo(350,350);
-        ctx.lineTo(50,350);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-        </script>
-
-<script type="text/javascript">
-
-    var c=document.getElementById("myCanvas");
-    var cxt=c.getContext("2d");
-    cxt.fillStyle="#FF0000";
-    cxt.beginPath();
-    cxt.arc(70,18,15,0,Math.PI*2,true);
-    cxt.closePath();
-    cxt.fill();
-
-    cxt.fillStyle='black';
-    cxt.beginPath();
-    cxt.moveTo(200,50);
-    cxt.lineTo(350,350);
-    cxt.lineTo(50,350);
-    cxt.closePath();
-    cxt.fill();
-    </script>
 </body>
+
+<script>
+    setTimeout(() => {
+        let page1 = document.getElementById('page1');
+        page1.style.display='none';
+        
+    }, 8000);
+</script>
+
 </html>

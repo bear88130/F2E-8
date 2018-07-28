@@ -45,7 +45,7 @@ return gulp.src('./style.scss')
 // 3.監看 scss 編譯 css
 // 要監聽會異動的檔案(含原封裝檔案)，有更動就去執行 gulp sass 
 gulp.task('watch', function () { 
-gulp.watch('./scss/*', ['sass']);
+gulp.watch(['./scss/*','style.scss'], ['sass']);
 });
 
 // 4.壓縮 css (上架版本)
