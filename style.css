@@ -5,16 +5,18 @@ body, .full {
   height: 100%;
   overflow: hidden; }
 
+.full, .questionBlcok {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center; }
+
 body {
   font-family: Microsoft JhengHei, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 .full {
   overflow: hidden;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
   background-color: #1469FF; }
 
 .title {
@@ -119,6 +121,38 @@ body {
     flex: 0 0 100vw;
     width: 100vw;
     height: 100vh; } }
+
+.circle-object {
+  position: absolute;
+  flex: 0 0 400px;
+  width: 400px;
+  height: 400px;
+  background-color: black;
+  border-radius: 50%;
+  top: 450px;
+  left: 80vw;
+  -webkit-animation-name: circle-object-move;
+          animation-name: circle-object-move;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+@-webkit-keyframes circle-object-move {
+  0% {
+    top: 650px;
+    left: 80vw; }
+  100% {
+    top: 450px;
+    left: 80vw; } }
+
+@keyframes circle-object-move {
+  0% {
+    top: 650px;
+    left: 80vw; }
+  100% {
+    top: 450px;
+    left: 80vw; } }
 
 .square {
   position: absolute;
@@ -291,7 +325,63 @@ body {
     height: 100vh;
     background-color: #1469FF; } }
 
+.questionBlcok {
+  height: 100%;
+  padding: 0 20px; }
+  .questionBlcok .number {
+    flex: 0 0 100%;
+    font-family: Roboto-Bold;
+    font-size: 64px;
+    color: #FF3C82;
+    text-align: center; }
+  .questionBlcok .question {
+    flex: 0 0 100%;
+    font-family: Roboto-Bold;
+    font-size: 36px;
+    color: #FFFFFF;
+    line-height: 48px; }
+  .questionBlcok .ps {
+    flex: 0 0 100%;
+    font-family: Roboto-Regular;
+    font-size: 24px;
+    color: #0027C8;
+    line-height: 36px; }
+  .questionBlcok .choice-button {
+    padding: 10px 0;
+    width: 100%;
+    margin: 20px 0 0 0;
+    border: 2px solid #FFFFFF;
+    border-radius: 30.5px;
+    font-family: Roboto-Regular;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 36px;
+    background-color: rgba(255, 255, 255, 0); }
+
+.animationBlcok {
+  height: 100%;
+  background-color: #0027C8; }
+
 /* 桌機 */
+@media (min-width: 992px) {
+  .questionBlcok {
+    flex: 3; }
+  .animationBlcok {
+    flex: 2; } }
+
 /* 平板 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .questionBlcok {
+    flex: 3; }
+  .animationBlcok {
+    flex: 2; } }
+
 /* 手機 */
+@media (max-width: 767px) {
+  .questionBlcok {
+    flex: 3; }
+  .animationBlcok {
+    flex: 0; } }
+
 /* For320px */

@@ -1,20 +1,27 @@
-$light-blue : #1469FF !default;
-$normal-blue : #0027C8 !default;
-$dark-blue : #00408B !default;
-$normal-red : #D0021B !default;
-$normal-orange : #F5A623 !default;
-$light-orange : #FFF2DC !default;
+$light-blue: #1469FF !default;
+$normal-blue: #0027C8 !default;
+$dark-blue: #00408B !default;
+$normal-red: #D0021B !default;
+$normal-orange: #F5A623 !default;
+$light-orange: #FFF2DC !default;
 $normal-gray:#F2F2F2 !default;
 $dark-gray: #757575 !default;
 $light-yellow:#FFF2DC !default;
 $normal-yellow:#f3e418 !default;
 $normal-pink:#FF3C82 !default;
 $text-color:white !default;
-
 %fullBlock {
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+%flex-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 @mixin transform($property) {
@@ -22,6 +29,15 @@ $text-color:white !default;
     flex: 0 0 $property;
     width: $property;
     height: $property;
+}
+
+@mixin circle-module($r,$bgcolor) {
+    position: absolute;
+    flex: 0 0 $r;
+    width: $r;
+    height: $r;
+    background-color: $bgcolor;
+    border-radius: 50%;
 }
 
 html,
@@ -36,20 +52,17 @@ body {
 .full {
     @extend %fullBlock;
     overflow: hidden;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    @extend %flex-center;
     background-color: $light-blue;
 }
 
-.title{
-    color:$text-color;
+.title {
+    color: $text-color;
     position: absolute;
 }
-.subtitle{
-    color:$text-color;
+
+.subtitle {
+    color: $text-color;
     position: absolute;
     top: 55%;
 }
@@ -59,35 +72,56 @@ body {
     background-color: $normal-blue;
     border-radius: 50%;
     animation: move-cirlce 5s 1;
-    animation-delay:1s;
+    animation-delay: 1s;
 }
+
 @keyframes move-cirlce {
     0% {
-        transform: scale(1,1);
+        transform: scale(1, 1);
         @include transform(75vh);
         border-radius: 50%;
     }
     20% {
-        transform: scale(.8,.8);
+        transform: scale(.8, .8);
         @include transform(75vh);
         border-radius: 50%;
     }
     40% {
-        transform:  scale(1.2,1.2);
+        transform: scale(1.2, 1.2);
         @include transform(75vh);
         border-radius: 50%;
     }
     80% {
-        transform:  scale(1,1);
+        transform: scale(1, 1);
         @include transform(75vh);
         border-radius: 50%;
     }
     100% {
-        transform:  rotate(360deg);
-        border-radius:0;
+        transform: rotate(360deg);
+        border-radius: 0;
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
+    }
+}
+
+.circle-object {
+    @include circle-module(400px,black);
+    top: 450px;
+    left: 80vw;
+    animation-name: circle-object-move;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes circle-object-move {
+    0% {
+        top: 650px;
+        left: 80vw;
+    }
+    100% {
+        top: 450px;
+        left: 80vw;
     }
 }
 
@@ -96,19 +130,20 @@ body {
     background-color: black;
     animation: move-square 5s 1;
 }
+
 @keyframes move-square {
     0% {
-        transform:  rotate(0deg);
+        transform: rotate(0deg);
     }
     80% {
-        transform:  rotate(360deg);
+        transform: rotate(360deg);
         @include transform(60vh);
     }
     100% {
-        transform:  rotate(360deg);
+        transform: rotate(360deg);
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
     }
 }
 
@@ -119,26 +154,27 @@ body {
     clip-path: polygon(50% 0%, 0 80%, 100% 80%);
     animation: move-triangle 8s 1;
 }
+
 @keyframes move-triangle {
     0% {
-        transform:  rotate(0deg);
+        transform: rotate(0deg);
     }
     70% {
-        transform:  rotate(360deg);
+        transform: rotate(360deg);
         @include transform(60vh);
     }
     90% {
-        transform:  rotate(360deg) scale(2,2);
+        transform: rotate(360deg) scale(2, 2);
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
         background-color: $normal-pink;
     }
     100% {
-        transform:  rotate(360deg) scale(2,2);
+        transform: rotate(360deg) scale(2, 2);
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
         background-color: $light-blue;
     }
 }
@@ -150,26 +186,72 @@ body {
     clip-path: polygon(0% 20%, 100% 20%, 50% 100%);
     animation: move-mirror-triangle 8s 1;
 }
-@keyframes move-mirror-triangle{
+
+@keyframes move-mirror-triangle {
     0% {
-        transform:  rotate(0deg);
+        transform: rotate(0deg);
     }
     70% {
-        transform:  rotate(-360deg);
+        transform: rotate(-360deg);
         @include transform(60vh);
     }
     90% {
-        transform:  rotate(360deg) scale(2,2);
+        transform: rotate(360deg) scale(2, 2);
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
         background-color: $normal-pink;
     }
     100% {
-        transform:  rotate(360deg) scale(2,2);
+        transform: rotate(360deg) scale(2, 2);
         flex: 0 0 100vw;
         width: 100vw;
-        height:100vh;
+        height: 100vh;
         background-color: $light-blue;
     }
+}
+
+.questionBlcok {
+    height: 100%;
+    @extend %flex-center;
+    padding: 0 20px;
+    .number {
+        flex: 0 0 100%;
+        font-family: Roboto-Bold;
+        font-size: 64px;
+        color: $normal-pink;
+        text-align: center;
+    }
+    .question {
+        flex: 0 0 100%;
+        font-family: Roboto-Bold;
+        font-size: 36px;
+        color: #FFFFFF;
+        line-height: 48px;
+    }
+    .ps {
+        flex: 0 0 100%;
+        font-family: Roboto-Regular;
+        font-size: 24px;
+        color: $normal-blue;
+        line-height: 36px;
+    }
+    .choice-button {
+        padding: 10px 0 ;
+        width:100%;
+        margin: 20px 0 0 0;
+        border: 2px solid #FFFFFF;
+        border-radius: 30.5px;
+        font-family: Roboto-Regular;
+        font-size: 20px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 36px;
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+.animationBlcok {
+    height: 100%;
+    background-color: $normal-blue;
 }
